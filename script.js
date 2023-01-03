@@ -1,3 +1,24 @@
+"use strict";
+
+class Calculator {
+  constructor(previousOperandTextElement, currentOperandTextElement) {
+    this.previousOperandTextElement = previousOperandTextElement;
+    this.currentOperandTextElement = currentOperandTextElement;
+  }
+
+  clear() {}
+
+  delete() {}
+
+  appendNumber() {}
+
+  chooseOperation() {}
+
+  compute() {}
+
+  updateDisplay() {}
+}
+
 const numberBtns = document.querySelectorAll("[data-number]");
 const operationBtns = document.querySelectorAll("[data-operation]");
 const clearBtn = document.querySelector("[data-clear]");
@@ -8,4 +29,9 @@ const currentOperandTextElement = document.querySelector(
 );
 const previousOperandTextElement = document.querySelector(
   "[data-previous-operand]"
+);
+
+const calculator = new Calculator(
+  previousOperandTextElement,
+  currentOperandTextElement
 );
