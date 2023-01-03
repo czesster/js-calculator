@@ -15,13 +15,17 @@ class Calculator {
 
   delete() {}
 
-  appendNumber() {}
+  appendNumber(number) {
+    this.currentOperand = this.currentOperand.toString() + number.toString();
+  }
 
   chooseOperation() {}
 
   compute() {}
 
-  updateDisplay() {}
+  updateDisplay() {
+    this.currentOperandTextElement.innerText = this.currentOperand;
+  }
 }
 
 const numberBtns = document.querySelectorAll("[data-number]");
@@ -40,6 +44,13 @@ const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
 );
+
+numberBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    calculator.appendNumber(btn.innerText);
+    calculator.updateDisplay();
+  });
+});
 
 clearBtn.addEventListener("click", () => {
   calculator.clear();
