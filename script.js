@@ -4,9 +4,14 @@ class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
     this.currentOperandTextElement = currentOperandTextElement;
+    this.clear();
   }
 
-  clear() {}
+  clear() {
+    this.currentOperand = "";
+    this.previousOperand = "";
+    this.operation = undefined;
+  }
 
   delete() {}
 
@@ -35,3 +40,8 @@ const calculator = new Calculator(
   previousOperandTextElement,
   currentOperandTextElement
 );
+
+clearBtn.addEventListener("click", () => {
+  calculator.clear();
+  calculator.updateDisplay();
+});
