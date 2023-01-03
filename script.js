@@ -20,12 +20,21 @@ class Calculator {
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
-  chooseOperation() {}
+  chooseOperation(operation) {
+    this.previousOperand = this.currentOperand;
+    this.operation = operation;
+    this.currentOperand = "";
+  }
 
   compute() {}
 
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.currentOperand;
+    if (this.operation != null) {
+      this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`;
+    } else {
+      this.previousOperandTextElement.innerText = "";
+    }
   }
 }
 
@@ -49,6 +58,13 @@ const calculator = new Calculator(
 numberBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     calculator.appendNumber(btn.innerText);
+    calculator.updateDisplay();
+  });
+});
+
+operationBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    calculator.chooseOperation(btn.innerText);
     calculator.updateDisplay();
   });
 });
