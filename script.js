@@ -18,6 +18,7 @@ class Calculator {
   }
 
   appendNumber(number) {
+    if (this.currentOperand.toString().length > 21) return;
     if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
@@ -82,6 +83,7 @@ const currentOperandTextElement = document.querySelector(
 const previousOperandTextElement = document.querySelector(
   "[data-previous-operand]"
 );
+const year = document.querySelector("[data-year]");
 
 const calculator = new Calculator(
   previousOperandTextElement,
@@ -116,3 +118,9 @@ deleteBtn.addEventListener("click", () => {
   calculator.delete();
   calculator.updateDisplay();
 });
+
+const updateYear = () => {
+  year.textContent = new Date().getFullYear();
+  console.log(new Date().getFullYear());
+};
+updateYear();

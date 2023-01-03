@@ -11,6 +11,11 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   width: 100vw;
   height: 100vh;
 
@@ -30,11 +35,11 @@ body {
 }
 
 .calculator {
-  margin: 20vh auto;
+  /* margin: 20vh auto; */
   display: flex;
   flex-direction: column;
 
-  max-width: 30rem;
+  width: 30rem;
 
   -webkit-box-shadow: 0px 0px 29px -17px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 29px -17px rgba(0, 0, 0, 1);
@@ -57,6 +62,7 @@ body {
   /* border: 1px solid blue; */
   padding: 0.8rem;
   color: rgba(255, 255, 255, 0.6);
+  font-size: 1.8rem;
 }
 
 .output__current {
@@ -105,4 +111,9 @@ button:active {
 
 .btn--2-row {
   grid-row: span 2;
+}
+
+.copyright {
+  font-size: 1rem;
+  background-color: none;
 }
