@@ -21,6 +21,11 @@ class Calculator {
   }
 
   chooseOperation(operation) {
+    if (this.currentOperand === "") return;
+    // if there's something in prev operand, it will take both operands and compute them
+    if (this.previousOperand !== "") {
+      this.compute();
+    }
     this.previousOperand = this.currentOperand;
     this.operation = operation;
     this.currentOperand = "";
